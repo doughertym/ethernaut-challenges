@@ -1,0 +1,3 @@
+.deps/
+contracts/artifacts
+tests/artifacts

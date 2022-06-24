@@ -38,3 +38,12 @@ I am not sure I fully get how this worked. The first try, using [ReentranceAttac
 
 I need to study this topic further since it is one that has recently been used (I think with Elephant.money).
 
+Maybe take a look at ... 
+
+* https://blog.openzeppelin.com/15-lines-of-code-that-could-have-prevented-thedao-hack-782499e00942
+* https://diligence.consensys.net/blog/2019/09/stop-using-soliditys-transfer-now/
+* https://forum.openzeppelin.com/t/reentrancy-after-istanbul/1742
+* https://solidity.readthedocs.io/en/develop/security-considerations.html#use-the-checks-effects-interactions-pattern
+
+
+

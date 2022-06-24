@@ -30,3 +30,11 @@ await contract.unlock( (
     await web3.eth.getStorageAt(contract.address, 1)
 ) );
 ```
+### Re-entrancy
+
+https://ethernaut.openzeppelin.com/level/0xe6BA07257a9321e755184FB2F995e0600E78c16D
+
+I am not sure I fully get how this worked. The first try, using [ReentranceAttack.sol from Ethernaut](https://github.com/OpenZeppelin/ethernaut/blob/master/contracts/contracts/attacks/ReentranceAttack.sol), did not work. However, using [Christoph Michel](https://cmichel.io/ethernaut-solutions/) did work. 
+
+I need to study this topic further since it is one that has recently been used (I think with Elephant.money).
+

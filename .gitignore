@@ -1,8 +1,7 @@
 .env
-
 .deps/
-**/*/artifacts
-tests/artifacts
+artifacts/
+cache/
 
 node_modules/
 tmp/

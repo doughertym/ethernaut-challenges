@@ -1,3 +1,5 @@
+.env
+
 .deps/
 **/*/artifacts
 tests/artifacts

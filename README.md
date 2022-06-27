@@ -88,3 +88,9 @@ contract.approve(player, (await contract.balanceOf(player)).toString());
 contract.transferFrom(player, '0xf332295db2AA2d8A6FDdD4a2C8f342EE40CC2DcC', (await contract.balanceOf(player)).toString());
 
 ```
+
+### Recovery
+
+This one was a bit tricky. I needed to do it with some `ethers` Javascript rather than a Solidity contract. I was able to find the contract address via etherscan and transactiion. The code provided by https://cmichel.io/ethernaut-solutions/ was helpful, but it did not solve the problem. 
+
+https://rinkeby.etherscan.io/tx/0xce4c51d4cf9c49a298df494bd9d8ba1d0c482ef8bc517fc4312b3612b38ff1d7

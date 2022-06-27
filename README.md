@@ -65,3 +65,32 @@ await contract.unlock( key16 )
 
 ```
 
+### Gatekeeper Two
+_Difficulty 6/10_
+
+This gatekeeper introduces a few new challenges. Register as an entrant to pass this level.
+
+Things that might help:
+* Remember what you've learned from getting past the first gatekeeper - the first gate is the same.
+* The assembly keyword in the second gate allows a contract to access functionality that is not native to vanilla Solidity. See here for more information. The extcodesize call in this gate will get the size of a contract's code at a given address - you can learn more about how and when this is set in section 7 of the yellow paper.
+* The ^ character in the third gate is a bitwise operation (XOR), and is used here to apply another common bitwise operation (see here). The Coin Flip level is also a good place to start when approaching this challenge.
+
+```
+0: uint256: 0
+1: uint64: 14006537356739165594
+2: uint64: 18446744073709551615
+```
+
+### Naught Coin
+
+```
+contract.approve(player, (await contract.balanceOf(player)).toString());
+contract.transferFrom(player, '0xf332295db2AA2d8A6FDdD4a2C8f342EE40CC2DcC', (await contract.balanceOf(player)).toString());
+
+```
+
+### Recovery
+
+This one was a bit tricky. I needed to do it with some `ethers` Javascript rather than a Solidity contract. I was able to find the contract address via etherscan and transactiion. The code provided by https://cmichel.io/ethernaut-solutions/ was helpful, but it did not solve the problem. 
+
+https://rinkeby.etherscan.io/tx/0xce4c51d4cf9c49a298df494bd9d8ba1d0c482ef8bc517fc4312b3612b38ff1d7

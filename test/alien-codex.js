@@ -2,7 +2,7 @@ const { ethers } = require("hardhat")
 const { BigNumber, Contract, Signer } = require("ethers");
 const { expect, assert } = require("chai")
 
-describe("AlienCodex challenge", function () {
+describe.skip("AlienCodex challenge", function () {
     const challengeAddress = '0xfFCcA432EbdC1e357f1C33C27d0d94430CB80FC7';
     let accounts;
     let player;

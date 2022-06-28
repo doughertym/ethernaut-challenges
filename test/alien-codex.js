@@ -20,7 +20,7 @@ describe("AlienCodex challenge", function () {
             `Address at first account (${player.address}) is not correct.`);
     });
 
-    it("take over ownership of the contract", async function () {
+    it.skip("take over ownership of the contract", async function () {
         // we need to make contract first to pass the modifier checks of other functions
         let txn = await challenge.make_contact();
         txn.wait();

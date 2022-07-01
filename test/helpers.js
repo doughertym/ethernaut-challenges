@@ -13,3 +13,9 @@ module.exports.getContract = async (contractName, contractAddress) => {
     }
     return contract;
 };
+
+module.exports.sleep = async (timeout) => {
+    return new Promise((resolve) => {
+        setTimeout(resolve, timeout);
+    });
+}

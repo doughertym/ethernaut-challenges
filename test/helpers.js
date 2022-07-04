@@ -1,6 +1,6 @@
 const { ethers, network } = require("hardhat")
 
-module.exports.getContract = async (contractName, contractAddress) => {
+const getContract = async (contractName, contractAddress) => {
     console.log(`test/helpers: getContract(${contractName}, ${contractAddress})`);
     const factory = await ethers.getContractFactory(contractName);
     let contract;
@@ -14,8 +14,32 @@ module.exports.getContract = async (contractName, contractAddress) => {
     return contract;
 };
 
-module.exports.sleep = async (timeout) => {
+const createLevelInstance = async (playerAddress, factoryName, contractName) => {
+    console.log(`test/helpers: createLevelInstance(${playerAddress}, ${factoryName}, ${contractName})`);
+    const levelFactory = await getContract(factoryName);
+    console.log(`${factoryName}.address = ${await levelFactory.address}`);
+    let txn = await levelFactory.createInstance(playerAddress, {
+        value: ethers.utils.parseEther('0.001')
+    })
+    txn.wait(1);
+
+    let receipt = await ethers.provider.getTransactionReceipt(txn.hash);
+    console.log(`Create contract instance receipt: `, receipt);
+    const log = levelFactory.interface.parseLog(receipt.logs[0]);
+    let targetAddress = log.args.instance;
+
+    console.log(`Deployed ${contractName} using level factory at ${await levelFactory.address} to ${targetAddress}`);
+    return getContract(contractName, targetAddress);
+};
+
+const sleep = async (timeout) => {
     return new Promise((resolve) => {
         setTimeout(resolve, timeout);
     });
 }
+
+module.exports = {
+    getContract,
+    createLevelInstance,
+    sleep
+};

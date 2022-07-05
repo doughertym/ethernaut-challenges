@@ -5,6 +5,7 @@ pragma solidity ^0.6.0;
 import '@openzeppelin/contracts/access/Ownable.sol';
 
 abstract contract Level is Ownable {
+    event LevelInstanceCreatedDebug(address indexed player, string message);
     event LevelInstanceCreatedLog(address indexed player, address instance);
     event LevelCompletedLog(address indexed player, address instance);
 
